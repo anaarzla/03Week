@@ -2,11 +2,11 @@
 require('database.php');
 
 
-$query = 'SELECT customers.customerID, emailAddress, firstName, lastName, line1, city, state, zipCode, phone
+$query = 'SELECT customers.customerID, customers.emailAddress, customers.firstName, customers.lastName, addresses.line1, addresses.city, addresses.state, addresses.zipCode, addresses.phone 
 FROM customers 
-JOIN addresses 
-	ON Customers.CustomerID = Addresses.CustomerID
-GROUP BY customerID ';// PUT YOUR SQL QUERY HERE
+INNER JOIN addresses 
+    ON customers.customerID = addresses.customerID 
+GROUP BY customerID, emailAddress, firstName, lastName, line1, city, state, zipCode, phone';// PUT YOUR SQL QUERY HERE
 // Example: $query = 'SELECT * FROM customers';
 
 
